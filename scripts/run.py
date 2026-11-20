@@ -33,7 +33,7 @@ import paths  # noqa: E402
 
 def stage(name, script, *args, **kw):
     print(f"\n== {name} ==", flush=True)
-    cmd = [sys.executable, HERE / script, *args]
+    cmd = [sys.executable, "-X", "utf8", HERE / script, *args]
     t = time.time()
     r = subprocess.run([str(c) for c in cmd], **kw)
     if r.returncode != 0:

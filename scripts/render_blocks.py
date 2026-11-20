@@ -76,7 +76,7 @@ def main():
                 print(f"block {b['index']:>2}: reuse {out.name}  {n} frames")
                 continue
             print(f"block {b['index']:>2}: {out.name} has {have}/{n} frames, re-render")
-        cmd = [sys.executable, str(render_py), "--project", str(proj), "--size", a.size,
+        cmd = [sys.executable, "-X", "utf8", str(render_py), "--project", str(proj), "--size", a.size,
                "--crf", str(a.crf), "--t0", f"{f0 / fps:.6f}", "--t1", f"{f1 / fps:.6f}",
                "--out", str(out)]
         if a.workers:

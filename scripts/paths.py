@@ -14,6 +14,9 @@ import subprocess
 import sys
 import time
 
+os.environ["PYTHONUTF8"] = "1"
+os.environ["PYTHONIOENCODING"] = "utf-8"
+
 SKILL = pathlib.Path(__file__).resolve().parents[1]          # .../automatic-storyteller-animate
 SCRIPTS = SKILL / "scripts"
 ASSETS = SKILL / "assets"

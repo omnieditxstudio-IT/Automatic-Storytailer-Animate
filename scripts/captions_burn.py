@@ -344,7 +344,7 @@ def main():
     a = ap.parse_args()
 
     proj = pathlib.Path(a.project).resolve()
-    timing = json.loads((proj / "audio" / "timing.json").read_text())
+    timing = paths.load_json(proj / "audio" / "timing.json")
     out = pathlib.Path(a.out)
     out = (out if out.is_absolute() else proj / out).resolve()
     out.parent.mkdir(parents=True, exist_ok=True)
