@@ -22,9 +22,7 @@ dist/
 *.m4a
 *.wav
 *.aac
-*.png
-*.jpg
-*.jpeg
+!assets/examples/*
 
 # Project cache and logs
 *.log

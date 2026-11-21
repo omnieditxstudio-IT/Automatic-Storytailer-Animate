@@ -171,7 +171,7 @@ def main():
         return
 
     scripts = paths.cinematic_scripts()
-    get = [sys.executable, scripts / "fetch_commons.py", "get", "--project", proj]
+    get = [sys.executable, "-X", "utf8", scripts / "fetch_commons.py", "get", "--project", proj]
     r = subprocess.run([str(c) for c in get])
     if r.returncode != 0:
         # drop whatever failed to arrive, then continue with the rest
@@ -185,9 +185,9 @@ def main():
             subprocess.run([str(c) for c in get], check=False)
         print(f"WARN {len(entries) - len(ok)} photo(s) unavailable; film continues with {len(ok)}")
 
-    subprocess.run([sys.executable, scripts / "prep_assets.py", "--project", proj,
+    subprocess.run([sys.executable, "-X", "utf8", scripts / "prep_assets.py", "--project", proj,
                     "--grade", a.grade], check=True)
-    subprocess.run([sys.executable, scripts / "fetch_commons.py", "credits", "--project", proj],
+    subprocess.run([sys.executable, "-X", "utf8", scripts / "fetch_commons.py", "credits", "--project", proj],
                    check=False)
 
     # snapshot the downloaded originals and their credits into the production cache

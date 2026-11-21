@@ -220,7 +220,7 @@ class NeonCaptions:
         # "fade" exit: alpha only
 
         line_h = size * 1.24
-        last_y = self.H - 6 * k - 0.22 * size        # last baseline: flush to the bottom edge
+        last_y = self.H - 18 * k - 0.28 * size        # last baseline: flush to bottom with descender room
         y0 = last_y - (len(lines) - 1) * line_h
         bx, by = self.W / 2, y0 + (len(lines) - 1) * line_h / 2
 

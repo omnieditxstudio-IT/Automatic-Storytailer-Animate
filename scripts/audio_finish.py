@@ -100,7 +100,7 @@ def main():
     if paths.cache_restore("sfx", sfx_key, ".wav", sfx, label="sfx-bus"):
         print("sfx: cache hit")
     else:
-        run([sys.executable, scripts / "build_sfx.py", "--project", proj])
+        run([sys.executable, "-X", "utf8", scripts / "build_sfx.py", "--project", proj])
         paths.cache_put("sfx", sfx_key, ".wav", sfx, label="sfx-bus")
 
     # 4. mix — production cache: same inputs + same mix settings -> reuse the mix
@@ -113,7 +113,7 @@ def main():
     if paths.cache_restore("mix", mix_key, ".m4a", mix, label="mix"):
         print("mix: cache hit")
     else:
-        cmd = [sys.executable, scripts / "mix_soundtrack.py", "--project", proj,
+        cmd = [sys.executable, "-X", "utf8", scripts / "mix_soundtrack.py", "--project", proj,
                "--voice", padded, "--sfx", sfx,
                "--music-db", a.music_db, "--sfx-db", a.sfx_db,
                "--duck-ratio", 4.0, "--duck-threshold", 0.025, "--music-eq-dip", 4.0,
